@@ -1,0 +1,105 @@
+@import 'part/default';
+
+.actions {
+    width: 100%;
+}
+
+.buttons {
+    margin: 8px auto;
+    text-align: center;
+
+    button {
+        color: white;
+        background-color: rgb(80, 0, 0);
+        border-radius: 4px;
+        padding: 4px;
+        transition: background-color 0.2s;
+        border: 1px solid black;
+
+        &:hover {
+            color: black;
+            background-color: rgb(255, 200, 0);
+        }
+
+        &.inactive {
+            color: rgb(70, 70, 70);
+            background-color: rgb(165, 165, 165);
+            cursor: auto;
+        }
+
+        &.fa-2x {
+            min-width: 42px;
+        }
+    }
+}
+
+.container {
+    width: 800px;
+    margin: 24px auto;
+}
+
+.deck {
+    text-align: center;
+
+    .card {
+        display: inline-block;
+        box-shadow: 6px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    .card {
+        left: 2px;
+        top: 2px;
+    }
+
+    &.small {
+        width: 136px;
+        height: 190px;
+    }
+
+    &.medium {
+        width: 272px;
+        height: 380px;
+    }
+
+    &.large {
+        width: 545px;
+        height: 762px;
+    }
+
+    &.back {
+        background-image: url("../img/card_back.jpg");
+    }
+
+    @for $i from 1 through 6 {
+        &.c-#{$i} {
+            background-image: url("../img/card_#{$i}.jpg");
+        }
+    }
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.table {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 16px;
+
+    div {
+        margin: auto;
+    }
+}
+
+.title, .description {
+    margin-bottom: 24px;
+}
