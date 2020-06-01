@@ -10,7 +10,14 @@ window.onload = () => {
     function draw () {
         // Draw a card.
         if (deck.length) {
-            const cardIndex = deck.pop();
+            let cardIndex = deck.pop();
+            // Check if we haven't draw the exit too soon (if setting `avoidEarlyExit` is on).
+            if (config.avoidEarlyExit && cardIndex === 6 && deck.length > 5) {
+                // Draw the next card instead, then put the exit card in the deck and shuffle the deck.
+                cardIndex = deck.pop();
+                deck.push(6);
+                deck = shuffle(deck);
+            }
             lastCard = document.createElement('div');
             lastCard.dataset.cardIndex = cardIndex;
             lastCard.classList.add('card', 'small', `c-${cardIndex}`);
