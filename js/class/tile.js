@@ -6,8 +6,11 @@ class Square {
     }
 }
 
+
+const __tileRegister = {};
+
 class Tile {
-    constructor (map) {
+    constructor (name, map) {
         this.map = [];
         for (const row of map) {
             const mapRow = [];
@@ -20,6 +23,14 @@ class Tile {
             }
             this.map.push(mapRow);
         }
+        this.height = map.length;
+        this.width = map[0].length;
+        __tileRegister[name] = this;
+    }
+
+    render () {
+        const htmlGrid = document.createElement('div');
+        htmlGrid.classList.add('grid');
     }
 
     setEntrance () {}
@@ -48,12 +59,10 @@ class Tile {
     }
 }
 
-const tiles = {
-    littleSquare: new Tile([
-        [1, 1],
-        [1, 1],
-    ]),
-};
+new Tile('littleSquare', [
+    [1, 1],
+    [1, 1],
+]);
 
 
 tiles.littleSquare.setEntrance(1, 1, 'bottom');

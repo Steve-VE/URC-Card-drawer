@@ -33,10 +33,15 @@ class Card {
      * @param {number} index - It's the card number, from 1 to 6.
      * @param {string} encounterLevel could be easy, medium or hard.
      */
-    constructor (index, encounterLevel) {
+    constructor (index, encounterLevel, tile) {
         this.index = index;
         this.encounterLevel = encounterLevel;
+        this.tile = __tileRegister[tile];
         __cardRegister[index] = this;
+    }
+
+    render () {
+        const tileHtml = this.tile.render();
     }
 
     get encounterChart () {
@@ -47,9 +52,9 @@ class Card {
     }
 }
 
-new Card(1, 'easy');
-new Card(2, 'easy');
-new Card(3, 'easy');
-new Card(4, 'medium');
-new Card(5, 'medium');
-new Card(6, 'hard');
+new Card(1, 'easy', 'littleSquare');
+new Card(2, 'easy', 'littleSquare');
+new Card(3, 'easy', 'littleSquare');
+new Card(4, 'medium', 'littleSquare');
+new Card(5, 'medium', 'littleSquare');
+new Card(6, 'hard', 'littleSquare');

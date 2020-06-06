@@ -1,7 +1,8 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -38,6 +39,7 @@ ul {
   background-color: #500000;
   border-radius: 4px;
   padding: 4px;
+  -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
   border: 1px solid black;
 }
@@ -55,6 +57,32 @@ ul {
 
 .buttons button.fa-2x {
   min-width: 42px;
+}
+
+.card_preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 600px;
+  border: 1px solid black;
+}
+
+.grid {
+  width: 80px;
+  height: 80px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+}
+
+.grid .square {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
 }
 
 main {
@@ -89,7 +117,8 @@ footer a, footer b {
 
 .deck .card {
   display: inline-block;
-  box-shadow: 6px 2px 2px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 6px 2px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: 6px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .card {
@@ -161,8 +190,10 @@ footer a, footer b {
 }
 
 .table {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
   grid-gap: 16px;
 }
 
